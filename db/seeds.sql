@@ -1,4 +1,4 @@
-INSERT INTO userInfo (seriesUUID, email)
+INSERT INTO userInfo (username, password, email)
 VALUES ("user1", "12345", "user1@test.com");
 
 INSERT INTO userInfo (username, password, email)
@@ -15,3 +15,6 @@ VALUES ("tv002", 2);
 
 INSERT INTO tvShows (seriesUUID, userID)
 VALUES ("tv003", 3);
+
+INSERT INTO tvShows (seriesUUID, userID)
+VALUES ("tv004", 3);
