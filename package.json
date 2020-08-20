@@ -1,0 +1,26 @@
+{
+  "name": "project-2-placeholder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Psiko345/Project-2-Placeholder.git"
+  },
+  "author": "Joshua Piper, Melody Lo, Antonio Guedes, Christopher Natale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Psiko345/Project-2-Placeholder/issues"
+  },
+  "homepage": "https://github.com/Psiko345/Project-2-Placeholder#readme"
+}
