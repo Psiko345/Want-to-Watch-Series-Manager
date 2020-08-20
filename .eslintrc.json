@@ -8,6 +8,8 @@
     "commonjs": true,
     "node": true
   },
+  "extends": "prettier",
+  "plugins": ["prettier"],
   "rules": {
     "array-callback-return": "error",
     "camelcase": "error",
