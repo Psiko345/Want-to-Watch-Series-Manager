@@ -15,3 +15,6 @@ VALUES ("tv002", 2);
 
 INSERT INTO tvShows (seriesUUID, userID)
 VALUES ("tv003", 3);
+
+INSERT INTO tvShows (seriesUUID, userID)
+VALUES ("tv004", 3);
