@@ -1,4 +1,4 @@
-INSERT INTO userInfo (seriesUUID, email)
+INSERT INTO userInfo (username, password, email)
 VALUES ("user1", "12345", "user1@test.com");
 
 INSERT INTO userInfo (username, password, email)
