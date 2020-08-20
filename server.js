@@ -1,43 +1,41 @@
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
 const express = require("express");
 
-const router = express.Router();
+// Sets up the Express App
+// =============================================================
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Import the model (cat.js) to use its database functions.
-const burger = require("../models/burger.js");
+// Requiring our models for syncing
+const db = require("./models");
 
-// Create all our routes and set up logic within those routes where required.
-router.get("/", (req, res) => {
-  burger.selectAll((data) => {
-    const hbsObject = {
-      burgers: data
-    };
-    res.render("index", hbsObject);
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Static directory
+app.use(express.static("public"));
+
+// Routes
+// =============================================================
+require("./routes/?")(app);
+require("./routes/?")(app);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => {
+    console.log("App listening on PORT " + PORT);
   });
 });
-
-router.post("/api/burgers", (req, res) => {
-  burger.insertOne(
-    ["burger_name" , "devoured"], 
-    [req.body.burger_name,false], (result) => {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
-});
-
-router.put("/api/burgers/:id", (req, res) => {
-  const condition = "id = " + req.params.id;
-
-  burger.updateOne({
-    devoured: true
-  }, condition, (result) => {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
-
-// Export routes for server.js to use.
-module.exports = router;
