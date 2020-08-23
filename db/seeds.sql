@@ -1,11 +1,11 @@
-INSERT INTO userInfo (username, password, email)
-VALUES ("user1", "12345", "user1@test.com");
+INSERT INTO Users (email, password, name)
+VALUES ("user1@test.com", "user1", "user1");
 
-INSERT INTO userInfo (username, password, email)
-VALUES ("user2", "23456", "user2@test.com");
+INSERT INTO Users (email, password, name)
+VALUES ("user2@test.com", "user2", "user2");
 
-INSERT INTO userInfo (username, password, email)
-VALUES ("user3", "34567", "user3@test.com");
+INSERT INTO Users (email, password, name)
+VALUES ("user3@test.com", "user3", "user3");
 
 INSERT INTO tvShows (seriesUUID, userID)
 VALUES ("tv001", 1);
