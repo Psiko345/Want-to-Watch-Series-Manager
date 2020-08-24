@@ -19,6 +19,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.set("view engine", "ejs");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
