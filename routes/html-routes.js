@@ -3,11 +3,11 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", { user: req.user });
   });
 
   app.get("/signup", (req, res) => {
-    res.render("signup");
+    res.render("signup", { user: req.user });
   });
 
   app.get("/login", (req, res) => {
@@ -18,6 +18,6 @@ module.exports = function(app) {
   });
 
   app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members");
+    res.render("members", { user: req.user });
   });
 };
