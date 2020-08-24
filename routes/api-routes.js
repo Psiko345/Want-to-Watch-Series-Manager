@@ -6,9 +6,10 @@ module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+  app.post("/api/login", passport.authenticate("local"), async (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    const user = req.body;
+    // const user = req.body;
+    const user = await db.User.findOne({ where: { email: req.body.email}}); 
     res.render("members", { user });
   });
 
