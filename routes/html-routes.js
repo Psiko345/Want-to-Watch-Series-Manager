@@ -20,4 +20,10 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     res.render("members", { user: req.user });
   });
+
+  app.post("/members", isAuthenticated, (req, res) => {
+    console.log("got data ok");
+    console.log(req.body);
+    // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
+  })
 };

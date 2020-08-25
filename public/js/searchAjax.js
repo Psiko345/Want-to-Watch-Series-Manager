@@ -9,7 +9,7 @@ $(".search-form").on("submit", e => {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).done(response => {
+  }).then(response => {
     console.log(response);
     const movieDiv = $("<div class='movie'>");
 
@@ -50,15 +50,20 @@ $(".search-form").on("submit", e => {
     movieDiv.append(image);
 
     const button = $("<button/>", {
-      text: 'Save',
-      click: function () {
-        alert('hi');
+      text: "Save",
+      click: function() {
+        $.ajax({
+          // url is the route that we want to call
+          // change url
+          url: "/members",
+          method: "POST",
+          data: { imdbID: response.imdbID }
+        });
       }
     });
 
     movieDiv.append(button);
     // Putting the entire movie above the previous movies
     $(".render-movie").prepend(movieDiv);
-
   });
 });
