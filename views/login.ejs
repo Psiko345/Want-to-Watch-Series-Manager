@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <%- include("layouts/header")%>
+<%- include("layouts/header")%>
 
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
@@ -13,7 +12,7 @@
     </div>
   </nav>
 
-
+  <!-- signup container -->
   <div class="container">
     <div class="row">
       <div class="col">
@@ -41,41 +40,7 @@
     </div>
   </div>
 
-   <!-- Icons Grid -->
-   <section class="features-icons bg-light text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-screen-desktop m-auto text-primary"></i>
-            </div>
-            <h3>Sign up</h3>
-            <p class="lead mb-0">Sign up our free membership</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-layers m-auto text-primary"></i>
-            </div>
-            <h3>Search</h3>
-            <p class="lead mb-0">Featuring the latest release of the new movies and TV series!</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-check m-auto text-primary"></i>
-            </div>
-            <h3>Save</h3>
-            <p class="lead mb-0">Save your favourite movie to watch list!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <%- include("layouts/iconsGrid")%>
   <%- include("layouts/footer")%>
   <%- include("layouts/scripts")%>
 </body>
