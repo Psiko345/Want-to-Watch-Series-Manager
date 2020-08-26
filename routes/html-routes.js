@@ -3,11 +3,15 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    res.render("index", { user: req.user });
+    res.render("index", {
+      user: req.user
+    });
   });
 
   app.get("/signup", (req, res) => {
-    res.render("signup", { user: req.user });
+    res.render("signup", {
+      user: req.user
+    });
   });
 
   app.get("/login", (req, res) => {
@@ -17,13 +21,22 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members", { user: req.user });
-  });
-
-  app.post("/members", isAuthenticated, (req, res) => {
-    console.log("got data ok");
-    console.log(req.body);
-    // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
-  })
+  // merged all "/members" API calls
+  app
+    .route("/members")
+    .all((req, res, next) => {
+      console.log("Ajax call here");
+      isAuthenticated;
+      next();
+    })
+    .get((req, res) => {
+      res.render("members", {
+        user: req.user
+      });
+    })
+    .post((req, res) => {
+      console.log("got data ok");
+      console.log(req.body);
+      // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
+    });
 };
