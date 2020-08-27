@@ -33,10 +33,13 @@ module.exports = function(app) {
       res.render("members", {
         user: req.user
       });
+      res.end();
     })
     .post((req, res) => {
       console.log("got data ok");
       console.log(req.body);
       // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
+      res.end();
     });
 };
+ 

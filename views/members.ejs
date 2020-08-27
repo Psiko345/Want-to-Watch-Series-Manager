@@ -22,7 +22,7 @@
                 <input type="text" class="form-control form-control-lg movie-input" placeholder="Search series here..." name="search-item">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary search-tv-btn">Search!</button>
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Search!</button>
               </div>
             </div>
           </form>
@@ -31,10 +31,14 @@
     </div>
   </header>
 
-  <div class="render-movie"></div>
+  <div class="row no-gutters">
+    <div class="col-lg-6 text-white showcase-img render-movie-img" style="object-fit: cover;""></div>
+    <div class="col-lg-6 my-auto showcase-text render-movie">
+      <h2></h2>
+      <p class="lead mb-0"></p>
+    </div>
+  </div>
 
-  <%- include("layouts/iconsGrid")%>
-  <%- include("layouts/imageShowcase")%>
   <%- include("layouts/testimonials")%>
   <%- include("layouts/question")%>
   <%- include("layouts/footer")%>
