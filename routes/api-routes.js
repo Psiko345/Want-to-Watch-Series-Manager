@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     // const user = req.body;
-    // const user = await db.User.findOne({ where: { email: req.body.email}}); 
+    // const user = db.User.findOne({ where: { email: req.body.email } });
     res.redirect("/members");
   });
 
@@ -25,7 +25,7 @@ module.exports = function(app) {
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
