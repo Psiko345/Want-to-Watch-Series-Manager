@@ -1,5 +1,4 @@
 // Requiring our custom middleware for checking if a user is logged in
-const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -24,11 +23,6 @@ module.exports = function(app) {
   // merged all "/members" API calls
   app
     .route("/members")
-    .all((req, res, next) => {
-      console.log("Ajax call here");
-      isAuthenticated;
-      next();
-    })
     .get((req, res) => {
       res.render("members", {
         user: req.user
@@ -38,8 +32,8 @@ module.exports = function(app) {
     .post((req, res) => {
       console.log("got data ok");
       console.log(req.body);
+      console.log(req.user);
       // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
       res.end();
     });
 };
- 

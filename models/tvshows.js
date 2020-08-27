@@ -10,19 +10,16 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
-      this.belongsToMany(models.User, {
-        through: "userID",
-      });
+      this.belongsTo(models.User);
     }
   }
   tvShows.init(
     {
-      seriesUUID: DataTypes.STRING,
-      userID: DataTypes.STRING,
+      seriesUUID: DataTypes.STRING
     },
     {
       sequelize,
-      modelName: "tvShows",
+      modelName: "tvShows"
     }
   );
   return tvShows;
