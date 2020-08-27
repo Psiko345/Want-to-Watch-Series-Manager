@@ -4,13 +4,13 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     res.render("index", {
-      user: req.user
+      user: req.user,
     });
   });
 
   app.get("/signup", (req, res) => {
     res.render("signup", {
-      user: req.user
+      user: req.user,
     });
   });
 
@@ -31,12 +31,14 @@ module.exports = function(app) {
     })
     .get((req, res) => {
       res.render("members", {
-        user: req.user
+        user: req.user,
       });
+      res.end();
     })
     .post((req, res) => {
       console.log("got data ok");
       console.log(req.body);
+      res.end();
       // req.body prints imdbID which is the movie ID that we want to save in SeriesDB
     });
 };

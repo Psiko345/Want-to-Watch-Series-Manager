@@ -9,8 +9,8 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     // const user = req.body;
-    // const user = await db.User.findOne({ where: { email: req.body.email}}); 
-    res.redirect("/members");
+    // const user = db.User.findOne({ where: { email: req.body.email } });
+    res.redirect("members");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -20,12 +20,12 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      name: req.body.name
+      name: req.body.name,
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -47,8 +47,16 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        name: req.user.name
+        name: req.user.name,
       });
     }
+  });
+
+  app.post("/api/tvshows", (req, res) => {
+    console.log(req.body);
+    // db.tvshows.create({
+    //   seriesUUID: req.body.imdbID,
+    //   userID: req.body.userID
+    // })
   });
 };
