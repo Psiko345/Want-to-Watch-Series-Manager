@@ -50,6 +50,12 @@ $(".search-form").on("submit", e => {
     });
 
     movieDiv.append(button);
+
+    const lineBreak = $(
+      "<hr width='100%' style='border: 1px dashed #C0C0C0' color='#FFFFFF' size='6'>"
+    );
+    movieDiv.append(lineBreak);
+
     // Putting the entire movie above the previous movies
     $(".render-movie").prepend(movieDiv);
     $(".render-movie-img").prepend(imageDiv);

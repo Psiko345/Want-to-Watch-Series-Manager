@@ -40,9 +40,18 @@ module.exports = function(app) {
     .post((req, res) => {
       db.tvShows.create({
         seriesUUID: req.body.imdbID,
-        seriesName: req.body.title,
         UserId: req.user.id
       });
       res.end();
     });
+
+  app.delete("/members", (req, res) => {
+    db.tvShows.destroy({
+      where: {
+        UserId: req.user.id,
+        seriesUUID: req.body.imdbID
+      }
+    });
+    res.end();
+  });
 };

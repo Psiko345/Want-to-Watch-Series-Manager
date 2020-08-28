@@ -5,7 +5,8 @@ console.log(arrayUUID);
 // loop through all UUID from database except [0]
 // somehow arrayUUID[0] is an empty string
 for (let i = 1; i < arrayUUID.length; i++) {
-  const queryURL = "https://www.omdbapi.com/?i=" + arrayUUID[i] + "&apikey=trilogy";
+  const queryURL =
+    "https://www.omdbapi.com/?i=" + arrayUUID[i] + "&apikey=trilogy";
   console.log(queryURL);
 
   $.ajax({
@@ -31,7 +32,26 @@ for (let i = 1; i < arrayUUID.length; i++) {
     const image = $("<img>").attr("src", imgURL);
     movieDiv.append(image);
 
-    const lineBreak = $("<br>");
+    const button = $("<button/>", {
+      text: "Delete",
+      click: function() {
+        $.ajax({
+          // url is the route that we want to call
+          // change url
+          url: "/members",
+          method: "DELETE",
+          data: {
+            imdbID: response.imdbID
+          }
+        });
+      }
+    });
+
+    movieDiv.append(button);
+
+    const lineBreak = $(
+      "<hr width='750px' max-width='80%' style='border: 1px dashed #C0C0C0' color='#FFFFFF' size='6'>"
+    );
     movieDiv.append(lineBreak);
 
     // Putting the entire movie above the previous movies
