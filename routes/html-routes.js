@@ -1,6 +1,5 @@
 // Requiring our custom middleware for checking if a user is logged in
 const db = require("../models");
-const tvshows = require("../models/tvshows");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -39,11 +38,9 @@ module.exports = function(app) {
       res.end();
     })
     .post((req, res) => {
-      // console.log("got data ok");
-      // console.log(req.body);
-      // console.log(req.user);
       db.tvShows.create({
         seriesUUID: req.body.imdbID,
+        seriesName: req.body.title,
         UserId: req.user.id
       });
       res.end();

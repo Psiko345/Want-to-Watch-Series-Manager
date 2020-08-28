@@ -42,7 +42,9 @@ $(".search-form").on("submit", e => {
           // change url
           url: "/members",
           method: "POST",
-          data: { imdbID: response.imdbID }
+          data: {
+            imdbID: response.imdbID
+          }
         });
       }
     });

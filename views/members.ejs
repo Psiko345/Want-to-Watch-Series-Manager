@@ -13,8 +13,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Welcome <%=user.name%>
-          this is your tv show <%= tvShows[0].seriesUUID %></h1>
+          <h1 class="mb-5">Welcome <%=user.name%></h1>  
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form class="search-form">
@@ -32,16 +31,20 @@
     </div>
   </header>
 
-  <div class="row no-gutters">
-    <div class="col-lg-6 text-white showcase-img render-movie-img" style="object-fit: cover;""></div>
+  <div class="row no-gutters render-movie-container">
+    <div class="col-lg-6 text-white showcase-img render-movie-img"></div>
     <div class="col-lg-6 my-auto showcase-text render-movie">
-      <h2></h2>
-      <p class="lead mb-0"></p>
     </div>
   </div>
+  
+  <div class="tvShows-seriesUUID-member">
+    <% for (let i = 0; i < tvShows.length; i++) { %>
+   <h2 class="mylist-seriesUUID"> <%=tvShows[i].seriesUUID%></h2>
+    <% } %>
+  </div>
 
+  <%- include("layouts/popup")%>
   <%- include("layouts/testimonials")%>
-  <%- include("layouts/question")%>
   <%- include("layouts/footer")%>
   <%- include("layouts/scripts")%>
 
