@@ -2,7 +2,8 @@ const seriesUUID = $(".mylist-seriesUUID").text();
 const arrayUUID = seriesUUID.split(" ").map(uuid => uuid.trim());
 console.log(arrayUUID);
 
-// loop through all UUID from database
+// loop through all UUID from database except [0]
+// somehow arrayUUID[0] is an empty string
 for (let i = 1; i < arrayUUID.length; i++) {
   const queryURL = "https://www.omdbapi.com/?i=" + arrayUUID[i] + "&apikey=trilogy";
   console.log(queryURL);
