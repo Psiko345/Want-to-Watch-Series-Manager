@@ -83,3 +83,10 @@ form.login {
   bottom: 5%;
   padding-bottom: 5%;
 }
+
+.iframe-container {
+  position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+}

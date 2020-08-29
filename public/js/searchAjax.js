@@ -3,7 +3,7 @@ $(".search-form").on("submit", e => {
   e.stopPropagation();
   console.log("click ok");
 
-  let movie = $(".movie-input").val().trim();
+  const movie = $(".movie-input").val().trim();
   const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
   $.ajax({
