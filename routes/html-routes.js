@@ -1,7 +1,7 @@
 // Requiring our custom middleware for checking if a user is logged in
 const db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.get("/", (req, res) => {
     res.render("index", {
       user: req.user
@@ -38,7 +38,7 @@ module.exports = function (app) {
       res.end();
     })
     .post((req, res) => {
-      db.tvShows.findOrCreate({
+      db.tvShows.create({
         seriesUUID: req.body.imdbID,
         UserId: req.user.id
       });

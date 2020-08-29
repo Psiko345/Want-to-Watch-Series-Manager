@@ -1,5 +1,7 @@
 const seriesUUID = $(".mylist-seriesUUID").text();
-const arrayUUID = seriesUUID.split(" ").map(uuid => uuid.trim());
+const originalArrayUUID = seriesUUID.split(" ").map(uuid => uuid.trim());
+const resetArrayUUID = new Set(originalArrayUUID);
+const arrayUUID = [...resetArrayUUID];
 console.log(arrayUUID);
 
 // loop through all UUID from database except [0]
@@ -43,6 +45,8 @@ for (let i = 1; i < arrayUUID.length; i++) {
           data: {
             imdbID: response.imdbID
           }
+        }).then(() => {
+          location.reload();
         });
       }
     });
