@@ -6,7 +6,7 @@
 
   ## Description
   * Want-to-Watch Movie Manager is a website which allows users to search movies available in the market and keep track of them.
-  * Deployed application on Heroku: https://murmuring-bastion-93462.herokuapp.com/
+  * Deployed application on Heroku: https://damp-dusk-40026.herokuapp.com/
 
   ## Table of Contents
   * [Installation](#installation)
