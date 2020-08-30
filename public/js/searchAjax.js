@@ -1,20 +1,20 @@
 $(".search-form").on("submit", e => {
   e.preventDefault();
   e.stopPropagation();
-  console.log("click ok");
+  // console.log("click ok");
 
   const movie = $(".movie-input")
     .val()
     .trim();
   const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-  console.log(movie);
+  // console.log(movie);
 
   if (movie !== "") {
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(response => {
-      console.log(response);
+      // console.log(response);
       const movieDiv = $("<div class='movie'>");
       const imageDiv = $("<div class='movie-image'>");
 

@@ -1,21 +1,20 @@
 const seriesUUID = $(".mylist-seriesUUID").text();
 const originalArrayUUID = seriesUUID.split(" ").map(uuid => uuid.trim());
-const resetArrayUUID = new Set(originalArrayUUID);
-const arrayUUID = [...resetArrayUUID];
-console.log(arrayUUID);
+const arrayUUID = [...new Set(originalArrayUUID)];
+// console.log(arrayUUID);
 
 // loop through all UUID from database except [0]
 // somehow arrayUUID[0] is an empty string
 for (let i = 1; i < arrayUUID.length; i++) {
   const queryURL =
     "https://www.omdbapi.com/?i=" + arrayUUID[i] + "&apikey=trilogy";
-  console.log(queryURL);
+  //   console.log(queryURL);
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(response => {
-    console.log(response.Title);
+    // console.log(response.Title);
     const movieDiv = $("<div class='movie'>");
 
     const title = response.Title;
