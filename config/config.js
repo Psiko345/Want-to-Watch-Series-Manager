@@ -1,6 +1,6 @@
-{
+module.exports = {
   "development": {
-    "use_env_variable": "SERIES_DB_URL",
+    "use_env_variable": process.env.SERIES_DB_URL,
     "dialect": "mysql"
   },
   "test": {
@@ -11,10 +11,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "password",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "use_env_variable": "SERIES_DB_URL",
     "dialect": "mysql"
   }
-}
+};
