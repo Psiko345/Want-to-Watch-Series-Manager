@@ -3,9 +3,6 @@
     "use_env_variable": "SERIES_DB_URL",
     "dialect": "mysql"
   },
-  "scripts": {
-    "start": "node server.js"
-  },
   "test": {
     "username": "root",
     "password": "password",
