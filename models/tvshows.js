@@ -15,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   tvShows.init(
     {
-      seriesUUID: DataTypes.STRING
+      seriesUUID: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true
+      }
     },
     {
       sequelize,
