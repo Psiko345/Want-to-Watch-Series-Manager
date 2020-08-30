@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       seriesUUID: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         unique: true
       }
     },
