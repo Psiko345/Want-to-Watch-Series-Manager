@@ -6,8 +6,54 @@ const arrayUUID = [...new Set(originalArrayUUID)];
 // loop through all UUID from database except [0]
 // somehow arrayUUID[0] is an empty string
 for (let i = 1; i < arrayUUID.length; i++) {
+  addToList(arrayUUID[i]);
+}
+
+// my list popup script
+const openPopupBtn = document.querySelectorAll("[data-popup-target]");
+const closePopupBtn = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay");
+
+openPopupBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    const popup = document.querySelector(button.dataset.popupTarget);
+    openPopup(popup);
+  });
+});
+
+overlay.addEventListener("click", () => {
+  const popups = document.querySelectorAll(".popup.active");
+  popups.forEach(popup => {
+    closePopup(popup);
+  });
+});
+
+closePopupBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    const popup = button.closest(".popup");
+    closePopup(popup);
+  });
+});
+
+function openPopup(popup) {
+  if (popup === null) {
+    return;
+  }
+  popup.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closePopup(popup) {
+  if (popup === null) {
+    return;
+  }
+  popup.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+function addToList(id) {
   const queryURL =
-    "https://www.omdbapi.com/?i=" + arrayUUID[i] + "&apikey=trilogy";
+    "https://www.omdbapi.com/?i=" + id + "&apikey=trilogy";
   //   console.log(queryURL);
 
   $.ajax({
@@ -60,46 +106,4 @@ for (let i = 1; i < arrayUUID.length; i++) {
     // Putting the entire movie above the previous movies
     $(".popup-body").prepend(movieDiv);
   });
-}
-
-// my list popup script
-const openPopupBtn = document.querySelectorAll("[data-popup-target]");
-const closePopupBtn = document.querySelectorAll("[data-close-button]");
-const overlay = document.getElementById("overlay");
-
-openPopupBtn.forEach(button => {
-  button.addEventListener("click", () => {
-    const popup = document.querySelector(button.dataset.popupTarget);
-    openPopup(popup);
-  });
-});
-
-overlay.addEventListener("click", () => {
-  const popups = document.querySelectorAll(".popup.active");
-  popups.forEach(popup => {
-    closePopup(popup);
-  });
-});
-
-closePopupBtn.forEach(button => {
-  button.addEventListener("click", () => {
-    const popup = button.closest(".popup");
-    closePopup(popup);
-  });
-});
-
-function openPopup(popup) {
-  if (popup === null) {
-    return;
-  }
-  popup.classList.add("active");
-  overlay.classList.add("active");
-}
-
-function closePopup(popup) {
-  if (popup === null) {
-    return;
-  }
-  popup.classList.remove("active");
-  overlay.classList.remove("active");
 }

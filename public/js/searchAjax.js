@@ -50,7 +50,7 @@ $(".search-form").on("submit", e => {
               imdbID: response.imdbID
             }
           }).then(() => {
-            location.reload();
+            addToList(response.imdbID);
           });
         }
       });
